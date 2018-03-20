@@ -1,0 +1,3 @@
+maven 命令
+-Dmaven.test.skip=true  跳过测试案例
+mvn install -Dmaven.test.skip=true   

@@ -1,3 +1,12 @@
+AbstractAutowireCapableBeanFactory
+
+predictBeanType
+postProcessBeforeInstantiation
+determineCandidateConstructors
+postProcessAfterInstantiation
+postProcessBeforeInitialization
+postProcessAfterInitialization
+
 
 predictBeanType（.....）AbstractAutowireCapableBeanFactory
 protected Object createBean(String beanName, RootBeanDefinition mbd, Object[] args) throws BeanCreationException {
@@ -137,3 +146,8 @@ protected Object resolveBeforeInstantiation(String beanName, RootBeanDefinition 
 			}
 		}
 	}
+	//循环引用，获取第一个简单的Bean
+	getEarlyBeanReference(Object bean, String beanName)
+	
+	//方法对属性值进行修改(这个时候属性值还未被设置，但是我们可以修改原本该设置进去的属性值
+	postProcessPropertyValues
