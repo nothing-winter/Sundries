@@ -4,3 +4,23 @@
 
 **BeanDefinitionParserDelegate**
 ![image](image/parseCustomElement.png)
+
+```java
+   public class NamespaceHandler extends NamespaceHandlerSupport {
+	 @Override
+	 public void init() {
+		 // 注册解析器
+		 registerBeanDefinitionParser(ElementNames.RAMCACHE, new CustomParser());
+	 }
+   }
+```
+**解析流程**
+   ![image](image/parseElement.png)
+   
+```java
+      CustomElement extends AbstractBeanDefinitionParser{
+        @Override
+        protected AbstractBeanDefinition parseInternal(Element element, ParserContext parserContext) {
+        }
+      }
+```
