@@ -18,7 +18,7 @@
    ![image](image/parseElement.png)
    
 ```java
-      CustomElement extends AbstractBeanDefinitionParser{
+      CustomParser extends AbstractBeanDefinitionParser{
         @Override
         protected AbstractBeanDefinition parseInternal(Element element, ParserContext parserContext) {
         }
