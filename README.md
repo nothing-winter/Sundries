@@ -24,3 +24,23 @@
         }
       }
 ```
+
+**添加CustomInstantiationAwareBeanPostProcessorAdapter**
+```java
+class PostProcessorRegistrationDelegate {
+   public static void registerBeanPostProcessors(
+		ConfigurableListableBeanFactory beanFactory, AbstractApplicationContext applicationContext) {
+		......
+		// Now, register all regular BeanPostProcessors.
+		List<BeanPostProcessor> nonOrderedPostProcessors = new ArrayList<BeanPostProcessor>();
+		for (String ppName : nonOrderedPostProcessorNames) {
+	             BeanPostProcessor pp = beanFactory.getBean(ppName, BeanPostProcessor.class);
+		     nonOrderedPostProcessors.add(pp);
+		     if (pp instanceof MergedBeanDefinitionPostProcessor) {
+		         internalPostProcessors.add(pp);
+		     }
+		}
+		......
+	}
+    }
+```
