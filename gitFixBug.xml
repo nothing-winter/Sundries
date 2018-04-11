@@ -1,0 +1,6 @@
+git checkout 版本 回退到Bug版本
+git checkout -b 分支名称 建立分支
+git reflog 查看最新节点
+git checkout 最新版本
+git checkout master 回到最分支
+git merge dev 合并分支
