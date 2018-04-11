@@ -31,6 +31,8 @@ class PostProcessorRegistrationDelegate {
    public static void registerBeanPostProcessors(
 		ConfigurableListableBeanFactory beanFactory, AbstractApplicationContext applicationContext) {
 		......
+		String[] postProcessorNames = beanFactory.getBeanNamesForType(BeanPostProcessor.class, true, false);
+		......
 		List<String> nonOrderedPostProcessorNames = new ArrayList<String>();
 		for (String ppName : postProcessorNames) {
 			if (beanFactory.isTypeMatch(ppName, PriorityOrdered.class)) {
@@ -61,3 +63,14 @@ class PostProcessorRegistrationDelegate {
 	}
     }
 ```
+**FactoryBean**
+```java
+  public interface FactoryBean<T> {
+     //获得FactoryBean生产的对象
+     T getObject() throws Exception;
+     //返回对象的类型
+     Class<?> getObjectType();
+     boolean isSingleton();
+  }
+```
+FactoryBean也是一个Bean,FactoryBean的存在就是为了解决Factory作为实例时的配置问题，让工厂模式在开发的时候配置起来更方便
